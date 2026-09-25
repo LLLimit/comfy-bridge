@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "id": "demo_image",
+  "revision": 1,
+  "name": "演示图片生成",
+  "description": "不调用 ComfyUI，用于验证手机端动态表单、任务进度与结果预览。",
+  "category": "image",
+  "provider": "mock",
+  "presentation": {
+    "submitLabel": "生成演示图片",
+    "icon": "auto_awesome"
+  },
+  "inputs": [
+    {
+      "key": "prompt",
+      "label": "提示词",
+      "description": "相同提示词会生成相同色彩主题。",
+      "valueType": "string",
+      "widget": "textarea",
+      "required": true,
+      "default": "一座漂浮在云海上的未来城市",
+      "constraints": {
+        "maxLength": 4000
+      }
+    },
+    {
+      "key": "referenceImage",
+      "label": "参考图片",
+      "description": "可选，用于验证上传链路。演示生成器不会分析图片内容。",
+      "valueType": "asset",
+      "widget": "imagePicker",
+      "required": false
+    },
+    {
+      "key": "style",
+      "label": "风格",
+      "valueType": "string",
+      "widget": "chips",
+      "required": true,
+      "default": "cinematic",
+      "options": [
+        { "value": "cinematic", "label": "电影感" },
+        { "value": "illustration", "label": "插画" },
+        { "value": "photo", "label": "摄影" }
+      ]
+    },
+    {
+      "key": "seed",
+      "label": "Seed",
+      "description": "留空时由 Agent 随机生成。",
+      "valueType": "integer",
+      "widget": "seed",
+      "required": false,
+      "advanced": true,
+      "default": null,
+      "constraints": {
+        "min": 0,
+        "max": 9223372036854775807
+      }
+    },
+    {
+      "key": "width",
+      "label": "宽度",
+      "valueType": "integer",
+      "widget": "slider",
+      "required": true,
+      "advanced": true,
+      "default": 768,
+      "constraints": {
+        "min": 256,
+        "max": 1024,
+        "step": 64
+      }
+    },
+    {
+      "key": "height",
+      "label": "高度",
+      "valueType": "integer",
+      "widget": "slider",
+      "required": true,
+      "advanced": true,
+      "default": 512,
+      "constraints": {
+        "min": 256,
+        "max": 1024,
+        "step": 64
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "key": "result",
+      "label": "生成图片",
+      "mediaType": "image"
+    }
+  ],
+  "stages": []
+}
+

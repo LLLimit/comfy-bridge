@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.comfy-bridge/contracts/agent-events.schema.json",
+  "title": "Agent event envelope",
+  "type": "object",
+  "required": ["schemaVersion", "eventId", "sequence", "type", "occurredAt", "payload"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "eventId": { "type": "string", "format": "uuid" },
+    "sequence": { "type": "integer", "minimum": 1 },
+    "type": {
+      "enum": [
+        "agent.snapshot",
+        "task.created",
+        "task.updated",
+        "task.completed",
+        "task.failed"
+      ]
+    },
+    "taskId": { "type": ["string", "null"], "format": "uuid" },
+    "occurredAt": { "type": "string", "format": "date-time" },
+    "payload": { "type": "object" }
+  },
+  "additionalProperties": false
+}
+

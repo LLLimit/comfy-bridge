@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.comfy-bridge/contracts/workflow-config.schema.json",
+  "title": "Private workflow pack configuration",
+  "type": "object",
+  "required": ["schemaVersion", "id", "revision", "name", "category", "provider", "inputs", "outputs"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9_]{2,63}$" },
+    "revision": { "type": "integer", "minimum": 1 },
+    "name": { "type": "string", "minLength": 1, "maxLength": 80 },
+    "description": { "type": "string", "maxLength": 500 },
+    "category": { "enum": ["image", "video"] },
+    "provider": { "enum": ["mock", "comfyui"] },
+    "workflow": {
+      "type": "object",
+      "required": ["file"],
+      "properties": {
+        "file": { "type": "string" },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      },
+      "additionalProperties": false
+    },
+    "presentation": {
+      "type": "object",
+      "properties": {
+        "submitLabel": { "type": "string" },
+        "icon": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["key", "label", "valueType", "widget", "required"],
+        "properties": {
+          "key": { "type": "string", "pattern": "^[A-Za-z][A-Za-z0-9_]*$" },
+          "label": { "type": "string" },
+          "description": { "type": "string" },
+          "valueType": { "enum": ["string", "integer", "number", "boolean", "asset", "assetList"] },
+          "widget": { "enum": ["text", "textarea", "number", "slider", "switch", "select", "chips", "seed", "imagePicker"] },
+          "required": { "type": "boolean" },
+          "advanced": { "type": "boolean" },
+          "default": {},
+          "options": { "type": "array" },
+          "constraints": { "type": "object" },
+          "mapping": { "type": "object" }
+        },
+        "additionalProperties": true
+      }
+    },
+    "outputs": { "type": "array", "items": { "type": "object" } },
+    "stages": { "type": "array", "items": { "type": "object" } }
+  },
+  "additionalProperties": false
+}
+

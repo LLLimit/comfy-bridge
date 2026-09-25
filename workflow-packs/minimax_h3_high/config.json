@@ -1,0 +1,238 @@
+{
+  "schemaVersion": 1,
+  "id": "minimax_h3_high",
+  "revision": 1,
+  "name": "【MINIMAX-H3】八月最强文戏-高配版",
+  "description": "双阶段高配音视频工作流，支持 1–6 张参考图、1–3 段参考音频和多种音视频生成模式。",
+  "category": "video",
+  "provider": "comfyui",
+  "workflow": {"file": "workflow.json"},
+  "presentation": {"submitLabel": "开始高配生成", "icon": "movie_filter"},
+  "inputs": [
+    {
+      "key": "firstFrame", "label": "首帧图片", "description": "I2VA、FL2VA 或 Hybrid 模式使用；其他模式可留空。",
+      "valueType": "asset", "widget": "imagePicker", "required": false,
+      "advanced": false, "default": null,
+      "mapping": {
+        "strategy": "uploadedFile",
+        "targets": [{"nodeId": "9001", "inputName": "image", "expectedClassType": "LoadImage"}],
+        "removeWhenEmpty": [
+          {"nodeId": "7", "inputName": "first_frame", "expectedClassType": "MiniMaxH3AudioConditioningT8"},
+          {"nodeId": "14", "inputName": "first_frame", "expectedClassType": "MiniMaxH3AudioConditioningT8"}
+        ]
+      }
+    },
+    {
+      "key": "lastFrame", "label": "尾帧图片", "description": "FL2VA、L2VA 或 Hybrid 模式使用；其他模式可留空。",
+      "valueType": "asset", "widget": "imagePicker", "required": false,
+      "advanced": false, "default": null,
+      "mapping": {
+        "strategy": "uploadedFile",
+        "targets": [{"nodeId": "9002", "inputName": "image", "expectedClassType": "LoadImage"}],
+        "removeWhenEmpty": [
+          {"nodeId": "7", "inputName": "last_frame", "expectedClassType": "MiniMaxH3AudioConditioningT8"},
+          {"nodeId": "14", "inputName": "last_frame", "expectedClassType": "MiniMaxH3AudioConditioningT8"}
+        ]
+      }
+    },
+    {
+      "key": "reference1", "label": "参考图 1",
+      "description": "Ref2VA 等参考模式使用；提示词中对应 Picture 1。",
+      "valueType": "asset", "widget": "imagePicker", "required": false,
+      "advanced": false, "default": null,
+      "mapping": {
+        "strategy": "uploadedFile",
+        "targets": [{"nodeId": "238", "inputName": "image", "expectedClassType": "LoadImage"}],
+        "removeWhenEmpty": [
+          {"nodeId": "7", "inputName": "ref_images.ref_image_0", "expectedClassType": "MiniMaxH3AudioConditioningT8"},
+          {"nodeId": "14", "inputName": "ref_images.ref_image_0", "expectedClassType": "MiniMaxH3AudioConditioningT8"}
+        ]
+      }
+    },
+    {
+      "key": "reference2", "label": "参考图 2", "description": "可选；对应 Picture 2。",
+      "valueType": "asset", "widget": "imagePicker", "required": false,
+      "advanced": false, "default": null,
+      "mapping": {
+        "strategy": "uploadedFile",
+        "targets": [{"nodeId": "237", "inputName": "image", "expectedClassType": "LoadImage"}],
+        "removeWhenEmpty": [
+          {"nodeId": "7", "inputName": "ref_images.ref_image_1", "expectedClassType": "MiniMaxH3AudioConditioningT8"},
+          {"nodeId": "14", "inputName": "ref_images.ref_image_1", "expectedClassType": "MiniMaxH3AudioConditioningT8"}
+        ]
+      }
+    },
+    {
+      "key": "reference3", "label": "参考图 3", "description": "可选；对应 Picture 3。",
+      "valueType": "asset", "widget": "imagePicker", "required": false,
+      "advanced": false, "default": null,
+      "mapping": {
+        "strategy": "uploadedFile",
+        "targets": [{"nodeId": "230", "inputName": "image", "expectedClassType": "LoadImage"}],
+        "removeWhenEmpty": [
+          {"nodeId": "7", "inputName": "ref_images.ref_image_2", "expectedClassType": "MiniMaxH3AudioConditioningT8"},
+          {"nodeId": "14", "inputName": "ref_images.ref_image_2", "expectedClassType": "MiniMaxH3AudioConditioningT8"}
+        ]
+      }
+    },
+    {
+      "key": "reference4", "label": "参考图 4", "description": "可选；对应 Picture 4。",
+      "valueType": "asset", "widget": "imagePicker", "required": false,
+      "advanced": false, "default": null,
+      "mapping": {
+        "strategy": "uploadedFile",
+        "targets": [{"nodeId": "218", "inputName": "image", "expectedClassType": "LoadImage"}],
+        "removeWhenEmpty": [
+          {"nodeId": "7", "inputName": "ref_images.ref_image_3", "expectedClassType": "MiniMaxH3AudioConditioningT8"},
+          {"nodeId": "14", "inputName": "ref_images.ref_image_3", "expectedClassType": "MiniMaxH3AudioConditioningT8"}
+        ]
+      }
+    },
+    {
+      "key": "reference5", "label": "参考图 5", "description": "可选；对应 Picture 5。",
+      "valueType": "asset", "widget": "imagePicker", "required": false,
+      "advanced": false, "default": null,
+      "mapping": {
+        "strategy": "uploadedFile",
+        "targets": [{"nodeId": "227", "inputName": "image", "expectedClassType": "LoadImage"}],
+        "removeWhenEmpty": [
+          {"nodeId": "7", "inputName": "ref_images.ref_image_4", "expectedClassType": "MiniMaxH3AudioConditioningT8"},
+          {"nodeId": "14", "inputName": "ref_images.ref_image_4", "expectedClassType": "MiniMaxH3AudioConditioningT8"}
+        ]
+      }
+    },
+    {
+      "key": "reference6", "label": "参考图 6", "description": "可选；对应 Picture 6。",
+      "valueType": "asset", "widget": "imagePicker", "required": false,
+      "advanced": false, "default": null,
+      "mapping": {
+        "strategy": "uploadedFile",
+        "targets": [{"nodeId": "217", "inputName": "image", "expectedClassType": "LoadImage"}],
+        "removeWhenEmpty": [
+          {"nodeId": "7", "inputName": "ref_images.ref_image_5", "expectedClassType": "MiniMaxH3AudioConditioningT8"},
+          {"nodeId": "14", "inputName": "ref_images.ref_image_5", "expectedClassType": "MiniMaxH3AudioConditioningT8"}
+        ]
+      }
+    },
+    {
+      "key": "audio1", "label": "参考音频 1", "description": "可选；对应第 1 路参考声音。",
+      "valueType": "asset", "widget": "audioPicker", "required": false,
+      "advanced": false, "default": null,
+      "mapping": {
+        "strategy": "uploadedFile",
+        "targets": [{"nodeId": "225", "inputName": "audio", "expectedClassType": "LoadAudio"}],
+        "removeWhenEmpty": [
+          {"nodeId": "7", "inputName": "ref_audios.ref_audio_0", "expectedClassType": "MiniMaxH3AudioConditioningT8"},
+          {"nodeId": "14", "inputName": "ref_audios.ref_audio_0", "expectedClassType": "MiniMaxH3AudioConditioningT8"}
+        ]
+      }
+    },
+    {
+      "key": "audio2", "label": "参考音频 2", "description": "可选；对应第 2 路参考声音。",
+      "valueType": "asset", "widget": "audioPicker", "required": false,
+      "advanced": false, "default": null,
+      "mapping": {
+        "strategy": "uploadedFile",
+        "targets": [{"nodeId": "223", "inputName": "audio", "expectedClassType": "LoadAudio"}],
+        "removeWhenEmpty": [
+          {"nodeId": "7", "inputName": "ref_audios.ref_audio_1", "expectedClassType": "MiniMaxH3AudioConditioningT8"},
+          {"nodeId": "14", "inputName": "ref_audios.ref_audio_1", "expectedClassType": "MiniMaxH3AudioConditioningT8"}
+        ]
+      }
+    },
+    {
+      "key": "audio3", "label": "参考音频 3", "description": "可选；对应第 3 路参考声音。",
+      "valueType": "asset", "widget": "audioPicker", "required": false,
+      "advanced": false, "default": null,
+      "mapping": {
+        "strategy": "uploadedFile",
+        "targets": [{"nodeId": "222", "inputName": "audio", "expectedClassType": "LoadAudio"}],
+        "removeWhenEmpty": [
+          {"nodeId": "7", "inputName": "ref_audios.ref_audio_2", "expectedClassType": "MiniMaxH3AudioConditioningT8"},
+          {"nodeId": "14", "inputName": "ref_audios.ref_audio_2", "expectedClassType": "MiniMaxH3AudioConditioningT8"}
+        ]
+      }
+    },
+    {
+      "key": "prompt", "label": "视频提示词", "description": "支持画面、对白、声音与镜头描述。",
+      "valueType": "string", "widget": "textarea", "required": true,
+      "advanced": false, "default": "", "constraints": {"maxLength": 24000},
+      "mapping": {"strategy": "direct", "targets": [{"nodeId": "167", "inputName": "prompt", "expectedClassType": "CR Prompt Text"}]}
+    },
+    {
+      "key": "taskType", "label": "生成模式", "description": "与高配工作流中的 task_type 完全对应。",
+      "valueType": "string", "widget": "select", "required": true,
+      "advanced": false, "default": "Ref2VA",
+      "options": [
+        {"value": "auto", "label": "自动判断"},
+        {"value": "T2VA", "label": "T2VA 文生音视频"},
+        {"value": "I2VA", "label": "I2VA 图生音视频（首帧）"},
+        {"value": "FL2VA", "label": "FL2VA 首尾帧生音视频"},
+        {"value": "L2VA", "label": "L2VA 尾帧生音视频"},
+        {"value": "Ref2VA", "label": "Ref2VA 参考生音视频"},
+        {"value": "Hybrid", "label": "Hybrid 关键帧+参考混合生成"}
+      ],
+      "mapping": {"strategy": "direct", "targets": [
+        {"nodeId": "7", "inputName": "task_type", "expectedClassType": "MiniMaxH3AudioConditioningT8"},
+        {"nodeId": "14", "inputName": "task_type", "expectedClassType": "MiniMaxH3AudioConditioningT8"}
+      ]}
+    },
+    {
+      "key": "aspectRatio", "label": "画面比例", "description": "低分辨率首遍采样的画面比例。",
+      "valueType": "string", "widget": "select", "required": true,
+      "advanced": false, "default": "16:9 (Widescreen)",
+      "options": [
+        {"value": "16:9 (Widescreen)", "label": "16:9 横屏"},
+        {"value": "9:16 (Portrait Widescreen)", "label": "9:16 竖屏"},
+        {"value": "1:1 (Square)", "label": "1:1 方形"},
+        {"value": "4:3 (Standard)", "label": "4:3 横屏"},
+        {"value": "3:4 (Portrait Standard)", "label": "3:4 竖屏"}
+      ],
+      "mapping": {"strategy": "direct", "targets": [{"nodeId": "164", "inputName": "aspect_ratio", "expectedClassType": "ResolutionSelector"}]}
+    },
+    {
+      "key": "megapixels", "label": "首遍分辨率像素量（MP）", "description": "源工作流默认 0.5 MP。",
+      "valueType": "number", "widget": "slider", "required": true,
+      "advanced": false, "default": 0.5, "constraints": {"min": 0.2, "max": 2.0, "step": 0.1},
+      "mapping": {"strategy": "direct", "targets": [{"nodeId": "164", "inputName": "megapixels", "expectedClassType": "ResolutionSelector"}]}
+    },
+    {
+      "key": "upscaleMultiplier", "label": "高配分辨率倍数", "description": "第二阶段潜空间分辨率倍数；源工作流默认 1.2 倍。",
+      "valueType": "number", "widget": "slider", "required": true,
+      "advanced": false, "default": 1.2, "constraints": {"min": 1.0, "max": 2.0, "step": 0.05},
+      "mapping": {"strategy": "direct", "targets": [{"nodeId": "268", "inputName": "value", "expectedClassType": "PrimitiveFloat"}]}
+    },
+    {
+      "key": "duration", "label": "视频时长（秒）", "description": "源工作流默认 7 秒。",
+      "valueType": "number", "widget": "slider", "required": true,
+      "advanced": false, "default": 7.0, "constraints": {"min": 2.0, "max": 15.0, "step": 1.0},
+      "mapping": {"strategy": "direct", "targets": [{"nodeId": "163", "inputName": "value", "expectedClassType": "PrimitiveFloat"}]}
+    },
+    {
+      "key": "addSourceAsReference", "label": "将源素材加入参考", "description": "对应工作流的 add_source_as_reference 开关。",
+      "valueType": "boolean", "widget": "switch", "required": true,
+      "advanced": true, "default": false,
+      "mapping": {"strategy": "direct", "targets": [
+        {"nodeId": "7", "inputName": "add_source_as_reference", "expectedClassType": "MiniMaxH3AudioConditioningT8"},
+        {"nodeId": "14", "inputName": "add_source_as_reference", "expectedClassType": "MiniMaxH3AudioConditioningT8"}
+      ]}
+    },
+    {
+      "key": "seed", "label": "随机种子", "description": "留空时每次自动随机。",
+      "valueType": "integer", "widget": "seed", "required": false,
+      "advanced": true, "default": null,
+      "constraints": {"min": 0, "max": 9223372036854775807},
+      "mapping": {"strategy": "direct", "targets": [{"nodeId": "11", "inputName": "noise_seed", "expectedClassType": "RandomNoise"}]}
+    }
+  ],
+  "outputs": [{"key": "video", "label": "高配音视频", "mediaType": "video", "nodeId": "226", "historyField": "gifs"}],
+  "stages": [
+    {"nodeId": "46", "label": "正在加载 MiniMax H3 模型"},
+    {"nodeId": "7", "label": "正在编码首遍音视频条件"},
+    {"nodeId": "12", "label": "正在执行首遍采样"},
+    {"nodeId": "13", "label": "正在放大潜空间"},
+    {"nodeId": "14", "label": "正在编码高分辨率条件"},
+    {"nodeId": "19", "label": "正在执行高配细化采样"},
+    {"nodeId": "226", "label": "正在编码并保存音视频"}
+  ]
+}

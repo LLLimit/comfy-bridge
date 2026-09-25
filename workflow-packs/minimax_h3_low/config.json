@@ -1,0 +1,290 @@
+{
+  "schemaVersion": 1,
+  "id": "minimax_h3_low",
+  "revision": 2,
+  "name": "【MINIMAX-H3】八月最强文戏-低配版",
+  "description": "1–6 张编号参考图、1–3 段参考音频配合文字提示词生成视频；支持按需开启二次采样。",
+  "category": "video",
+  "provider": "comfyui",
+  "workflow": {
+    "file": "workflow.json"
+  },
+  "presentation": {
+    "submitLabel": "开始生成视频",
+    "icon": "movie"
+  },
+  "inputs": [
+    {
+      "key": "reference1",
+      "label": "参考图 1",
+      "description": "至少选择第 1 张参考图；提示词中对应 Picture 1。",
+      "valueType": "asset",
+      "widget": "imagePicker",
+      "required": true,
+      "advanced": false,
+      "default": null,
+      "mapping": {
+        "strategy": "uploadedFile",
+        "targets": [{"nodeId": "526", "inputName": "image", "expectedClassType": "LoadImage"}],
+        "removeWhenEmpty": [{"nodeId": "338", "inputName": "ref_images.ref_image_0", "expectedClassType": "MiniMaxH3ReferenceToVideo"}]
+      }
+    },
+    {
+      "key": "reference2",
+      "label": "参考图 2",
+      "description": "可选；不上传时自动关闭第 2 路。",
+      "valueType": "asset",
+      "widget": "imagePicker",
+      "required": false,
+      "advanced": false,
+      "default": null,
+      "mapping": {
+        "strategy": "uploadedFile",
+        "targets": [{"nodeId": "527", "inputName": "image", "expectedClassType": "LoadImage"}],
+        "removeWhenEmpty": [{"nodeId": "338", "inputName": "ref_images.ref_image_1", "expectedClassType": "MiniMaxH3ReferenceToVideo"}]
+      }
+    },
+    {
+      "key": "reference3",
+      "label": "参考图 3",
+      "description": "可选；不上传时自动关闭第 3 路。",
+      "valueType": "asset",
+      "widget": "imagePicker",
+      "required": false,
+      "advanced": false,
+      "default": null,
+      "mapping": {
+        "strategy": "uploadedFile",
+        "targets": [{"nodeId": "525", "inputName": "image", "expectedClassType": "LoadImage"}],
+        "removeWhenEmpty": [{"nodeId": "338", "inputName": "ref_images.ref_image_2", "expectedClassType": "MiniMaxH3ReferenceToVideo"}]
+      }
+    },
+    {
+      "key": "reference4",
+      "label": "参考图 4",
+      "description": "可选；不上传时自动关闭第 4 路。",
+      "valueType": "asset",
+      "widget": "imagePicker",
+      "required": false,
+      "advanced": false,
+      "default": null,
+      "mapping": {
+        "strategy": "uploadedFile",
+        "targets": [{"nodeId": "515", "inputName": "image", "expectedClassType": "LoadImage"}],
+        "removeWhenEmpty": [{"nodeId": "338", "inputName": "ref_images.ref_image_3", "expectedClassType": "MiniMaxH3ReferenceToVideo"}]
+      }
+    },
+    {
+      "key": "reference5",
+      "label": "参考图 5",
+      "description": "可选；不上传时自动关闭第 5 路。",
+      "valueType": "asset",
+      "widget": "imagePicker",
+      "required": false,
+      "advanced": false,
+      "default": null,
+      "mapping": {
+        "strategy": "uploadedFile",
+        "targets": [{"nodeId": "475", "inputName": "image", "expectedClassType": "LoadImage"}],
+        "removeWhenEmpty": [{"nodeId": "338", "inputName": "ref_images.ref_image_4", "expectedClassType": "MiniMaxH3ReferenceToVideo"}]
+      }
+    },
+    {
+      "key": "reference6",
+      "label": "参考图 6",
+      "description": "可选；不上传时自动关闭第 6 路。",
+      "valueType": "asset",
+      "widget": "imagePicker",
+      "required": false,
+      "advanced": false,
+      "default": null,
+      "mapping": {
+        "strategy": "uploadedFile",
+        "targets": [{"nodeId": "469", "inputName": "image", "expectedClassType": "LoadImage"}],
+        "removeWhenEmpty": [{"nodeId": "338", "inputName": "ref_images.ref_image_5", "expectedClassType": "MiniMaxH3ReferenceToVideo"}]
+      }
+    },
+    {
+      "key": "audio1",
+      "label": "参考音频 1",
+      "description": "可选；用于参考声音、对白或环境音。",
+      "valueType": "asset",
+      "widget": "audioPicker",
+      "required": false,
+      "advanced": false,
+      "default": null,
+      "mapping": {
+        "strategy": "uploadedFile",
+        "targets": [{"nodeId": "522", "inputName": "audio", "expectedClassType": "LoadAudio"}],
+        "removeWhenEmpty": [{"nodeId": "338", "inputName": "ref_audios.ref_audio_0", "expectedClassType": "MiniMaxH3ReferenceToVideo"}]
+      }
+    },
+    {
+      "key": "audio2",
+      "label": "参考音频 2",
+      "description": "可选；不上传时自动关闭第 2 路音频。",
+      "valueType": "asset",
+      "widget": "audioPicker",
+      "required": false,
+      "advanced": false,
+      "default": null,
+      "mapping": {
+        "strategy": "uploadedFile",
+        "targets": [{"nodeId": "523", "inputName": "audio", "expectedClassType": "LoadAudio"}],
+        "removeWhenEmpty": [{"nodeId": "338", "inputName": "ref_audios.ref_audio_1", "expectedClassType": "MiniMaxH3ReferenceToVideo"}]
+      }
+    },
+    {
+      "key": "audio3",
+      "label": "参考音频 3",
+      "description": "可选；不上传时自动关闭第 3 路音频。",
+      "valueType": "asset",
+      "widget": "audioPicker",
+      "required": false,
+      "advanced": false,
+      "default": null,
+      "mapping": {
+        "strategy": "uploadedFile",
+        "targets": [{"nodeId": "473", "inputName": "audio", "expectedClassType": "LoadAudio"}],
+        "removeWhenEmpty": [{"nodeId": "338", "inputName": "ref_audios.ref_audio_2", "expectedClassType": "MiniMaxH3ReferenceToVideo"}]
+      }
+    },
+    {
+      "key": "prompt",
+      "label": "视频提示词",
+      "description": "可使用 Picture 1–6 指代已上传的编号参考图。",
+      "valueType": "string",
+      "widget": "textarea",
+      "required": true,
+      "advanced": false,
+      "default": "",
+      "constraints": {"maxLength": 24000},
+      "mapping": {
+        "strategy": "direct",
+        "targets": [{"nodeId": "528", "inputName": "prompt", "expectedClassType": "CR Prompt Text"}]
+      }
+    },
+    {
+      "key": "aspectRatio",
+      "label": "画面比例",
+      "description": "源工作流默认 16:9。",
+      "valueType": "string",
+      "widget": "select",
+      "required": true,
+      "advanced": false,
+      "default": "16:9 (Widescreen)",
+      "options": [
+        {"value": "16:9 (Widescreen)", "label": "16:9 横屏"},
+        {"value": "9:16 (Portrait Widescreen)", "label": "9:16 竖屏"},
+        {"value": "1:1 (Square)", "label": "1:1 方形"},
+        {"value": "4:3 (Standard)", "label": "4:3 横屏"},
+        {"value": "3:4 (Portrait Standard)", "label": "3:4 竖屏"}
+      ],
+      "mapping": {
+        "strategy": "direct",
+        "targets": [{"nodeId": "456", "inputName": "aspect_ratio", "expectedClassType": "ResolutionSelector"}]
+      }
+    },
+    {
+      "key": "megapixels",
+      "label": "分辨率像素量（MP）",
+      "description": "源工作流默认 2.0 MP；数值越高越耗显存和时间。",
+      "valueType": "number",
+      "widget": "slider",
+      "required": true,
+      "advanced": false,
+      "default": 2.0,
+      "constraints": {"min": 0.2, "max": 4.0, "step": 0.1},
+      "mapping": {
+        "strategy": "direct",
+        "targets": [{"nodeId": "456", "inputName": "megapixels", "expectedClassType": "ResolutionSelector"}]
+      }
+    },
+    {
+      "key": "duration",
+      "label": "视频时长（秒）",
+      "description": "工作流会自动换算成符合 H3 要求的帧数。",
+      "valueType": "number",
+      "widget": "slider",
+      "required": true,
+      "advanced": false,
+      "default": 5.0,
+      "constraints": {"min": 2.0, "max": 15.0, "step": 1.0},
+      "mapping": {
+        "strategy": "direct",
+        "targets": [{"nodeId": "529", "inputName": "value", "expectedClassType": "PrimitiveFloat"}]
+      }
+    },
+    {
+      "key": "seed",
+      "label": "随机种子",
+      "description": "留空时每次自动随机。",
+      "valueType": "integer",
+      "widget": "seed",
+      "required": false,
+      "advanced": true,
+      "default": null,
+      "constraints": {"min": 0, "max": 9223372036854775807},
+      "mapping": {
+        "strategy": "direct",
+        "targets": [{"nodeId": "322", "inputName": "noise_seed", "expectedClassType": "RandomNoise"}]
+      }
+    },
+    {
+      "key": "secondPass",
+      "label": "二次采样",
+      "description": "开启后执行原工作流中的潜空间放大与第二遍细化采样，耗时和显存会增加。",
+      "valueType": "boolean",
+      "widget": "switch",
+      "required": true,
+      "advanced": true,
+      "default": false,
+      "mapping": {
+        "strategy": "direct",
+        "targets": []
+      }
+    },
+    {
+      "key": "secondPassScale",
+      "label": "二次采样分辨率倍数",
+      "description": "仅在开启二次采样时生效；源工作流默认 1.5 倍。",
+      "valueType": "number",
+      "widget": "slider",
+      "required": true,
+      "advanced": true,
+      "default": 1.5,
+      "constraints": {"min": 1.0, "max": 2.0, "step": 0.05},
+      "mapping": {
+        "strategy": "direct",
+        "targets": [{"nodeId": "555", "inputName": "mode.scale", "expectedClassType": "MinimaxH3LatentUpscaler3D"}]
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "key": "video",
+      "label": "生成视频",
+      "mediaType": "video",
+      "nodeId": "521",
+      "historyField": "gifs",
+      "when": {"input": "secondPass", "equals": false}
+    },
+    {
+      "key": "videoSecondPass",
+      "label": "二次采样视频",
+      "mediaType": "video",
+      "nodeId": "563",
+      "historyField": "gifs",
+      "when": {"input": "secondPass", "equals": true}
+    }
+  ],
+  "stages": [
+    {"nodeId": "547", "label": "正在加载 MiniMax H3 模型"},
+    {"nodeId": "338", "label": "正在编码参考图和提示词"},
+    {"nodeId": "317", "label": "正在生成视频"},
+    {"nodeId": "521", "label": "正在编码并保存视频"},
+    {"nodeId": "555", "label": "正在放大潜空间"},
+    {"nodeId": "553", "label": "正在执行二次采样"},
+    {"nodeId": "563", "label": "正在编码并保存二次采样视频"}
+  ]
+}

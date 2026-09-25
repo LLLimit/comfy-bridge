@@ -1,0 +1,294 @@
+{
+  "1": {
+    "inputs": {
+      "vae_name": "ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "VAELoader"
+    }
+  },
+  "2": {
+    "inputs": {
+      "anything": [
+        "18",
+        0
+      ],
+      "purge_cache": true,
+      "purge_models": true
+    },
+    "class_type": "LayerUtility: PurgeVRAM V2",
+    "_meta": {
+      "title": "LayerUtility: PurgeVRAM V2"
+    }
+  },
+  "13": {
+    "inputs": {
+      "value": 2
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "边分块数"
+    }
+  },
+  "21": {
+    "inputs": {
+      "image": [
+        "3",
+        0
+      ],
+      "model": [
+        "6",
+        0
+      ],
+      "positive": [
+        "22",
+        0
+      ],
+      "negative": [
+        "5",
+        0
+      ],
+      "vae": [
+        "1",
+        0
+      ],
+      "upscale_model": [
+        "15",
+        0
+      ],
+      "upscale_by": [
+        "16",
+        0
+      ],
+      "seed": 999,
+      "steps": 6,
+      "cfg": 1.0,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 0.25,
+      "mode_type": "Linear",
+      "tile_width": [
+        "12",
+        0
+      ],
+      "tile_height": [
+        "12",
+        2
+      ],
+      "mask_blur": 16,
+      "tile_padding": 64,
+      "seam_fix_mode": "None",
+      "seam_fix_denoise": 1.0,
+      "seam_fix_width": 64,
+      "seam_fix_mask_blur": 8,
+      "seam_fix_padding": 16,
+      "force_uniform_tiles": true,
+      "tiled_decode": false,
+      "batch_size": 1
+    },
+    "class_type": "UltimateSDUpscale",
+    "_meta": {
+      "title": "UltimateSDUpscale"
+    }
+  },
+  "3": {
+    "inputs": {
+      "samples": [
+        "2",
+        0
+      ],
+      "vae": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAEDecode"
+    }
+  },
+  "15": {
+    "inputs": {
+      "model_name": "4x-UltraSharp.pth"
+    },
+    "class_type": "UpscaleModelLoader",
+    "_meta": {
+      "title": "UpscaleModelLoader"
+    }
+  },
+  "14": {
+    "inputs": {
+      "image": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "GetImageSize+",
+    "_meta": {
+      "title": "GetImageSize+"
+    }
+  },
+  "12": {
+    "inputs": {
+      "a": [
+        "14",
+        0
+      ],
+      "b": [
+        "14",
+        1
+      ],
+      "c": [
+        "16",
+        0
+      ],
+      "d": [
+        "13",
+        0
+      ],
+      "value_1": "a*c/d",
+      "value_2": "b*c/d"
+    },
+    "class_type": "SimpleMathDual+",
+    "_meta": {
+      "title": "SimpleMathDual+"
+    }
+  },
+  "11": {
+    "inputs": {
+      "anything": [
+        "21",
+        0
+      ],
+      "purge_cache": true,
+      "purge_models": true
+    },
+    "class_type": "LayerUtility: PurgeVRAM V2",
+    "_meta": {
+      "title": "LayerUtility: PurgeVRAM V2"
+    }
+  },
+  "429": {
+    "inputs": {
+      "images": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "PreviewImage"
+    }
+  },
+  "20": {
+    "inputs": {
+      "unet_name": "z_image_turbo_bf16.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "UNETLoader"
+    }
+  },
+  "8": {
+    "inputs": {
+      "clip_name": "qwen_3_4b_fp8_mixed.safetensors",
+      "type": "lumina2",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "CLIPLoader"
+    }
+  },
+  "6": {
+    "inputs": {
+      "model": [
+        "20",
+        0
+      ],
+      "shift": 3,
+      "sampling": "flow"
+    },
+    "class_type": "ModelSamplingAuraFlow",
+    "_meta": {
+      "title": "ModelSamplingAuraFlow"
+    }
+  },
+  "5": {
+    "inputs": {
+      "conditioning": [
+        "22",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "ConditioningZeroOut"
+    }
+  },
+  "22": {
+    "inputs": {
+      "clip": [
+        "8",
+        0
+      ],
+      "text": "手机端提示词"
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIPTextEncode"
+    }
+  },
+  "16": {
+    "inputs": {
+      "value": 2.5
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "放大倍数"
+    }
+  },
+  "7": {
+    "inputs": {
+      "width": 1080,
+      "height": 1920,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "EmptyLatentImage"
+    }
+  },
+  "18": {
+    "inputs": {
+      "model": [
+        "6",
+        0
+      ],
+      "positive": [
+        "22",
+        0
+      ],
+      "negative": [
+        "5",
+        0
+      ],
+      "latent_image": [
+        "7",
+        0
+      ],
+      "seed": 562085202150683,
+      "steps": 8,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  }
+}

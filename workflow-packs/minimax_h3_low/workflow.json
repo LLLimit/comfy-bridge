@@ -1,0 +1,783 @@
+{
+  "446": {
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_fp16.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "VAELoader"
+    }
+  },
+  "448": {
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "VAELoader"
+    }
+  },
+  "478": {
+    "inputs": {
+      "image": [
+        "527",
+        0
+      ],
+      "aspect_ratio": "original",
+      "proportional_width": 1,
+      "proportional_height": 1,
+      "fit": "crop",
+      "method": "lanczos",
+      "round_to_multiple": "32",
+      "scale_to_side": "total_pixel(kilo pixel)",
+      "scale_to_length": 1280,
+      "background_color": "#000000"
+    },
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "_meta": {
+      "title": "LayerUtility: ImageScaleByAspectRatio V2"
+    }
+  },
+  "479": {
+    "inputs": {
+      "image": [
+        "525",
+        0
+      ],
+      "aspect_ratio": "original",
+      "proportional_width": 1,
+      "proportional_height": 1,
+      "fit": "crop",
+      "method": "lanczos",
+      "round_to_multiple": "32",
+      "scale_to_side": "total_pixel(kilo pixel)",
+      "scale_to_length": 1280,
+      "background_color": "#000000"
+    },
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "_meta": {
+      "title": "LayerUtility: ImageScaleByAspectRatio V2"
+    }
+  },
+  "480": {
+    "inputs": {
+      "image": [
+        "469",
+        0
+      ],
+      "aspect_ratio": "original",
+      "proportional_width": 1,
+      "proportional_height": 1,
+      "fit": "crop",
+      "method": "lanczos",
+      "round_to_multiple": "32",
+      "scale_to_side": "total_pixel(kilo pixel)",
+      "scale_to_length": 1280,
+      "background_color": "#000000"
+    },
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "_meta": {
+      "title": "LayerUtility: ImageScaleByAspectRatio V2"
+    }
+  },
+  "481": {
+    "inputs": {
+      "image": [
+        "475",
+        0
+      ],
+      "aspect_ratio": "original",
+      "proportional_width": 1,
+      "proportional_height": 1,
+      "fit": "crop",
+      "method": "lanczos",
+      "round_to_multiple": "32",
+      "scale_to_side": "total_pixel(kilo pixel)",
+      "scale_to_length": 1280,
+      "background_color": "#000000"
+    },
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "_meta": {
+      "title": "LayerUtility: ImageScaleByAspectRatio V2"
+    }
+  },
+  "482": {
+    "inputs": {
+      "image": [
+        "526",
+        0
+      ],
+      "aspect_ratio": "original",
+      "proportional_width": 1,
+      "proportional_height": 1,
+      "fit": "crop",
+      "method": "lanczos",
+      "round_to_multiple": "32",
+      "scale_to_side": "total_pixel(kilo pixel)",
+      "scale_to_length": 1280,
+      "background_color": "#000000"
+    },
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "_meta": {
+      "title": "LayerUtility: ImageScaleByAspectRatio V2"
+    }
+  },
+  "516": {
+    "inputs": {
+      "image": [
+        "515",
+        0
+      ],
+      "aspect_ratio": "original",
+      "proportional_width": 1,
+      "proportional_height": 1,
+      "fit": "crop",
+      "method": "lanczos",
+      "round_to_multiple": "32",
+      "scale_to_side": "total_pixel(kilo pixel)",
+      "scale_to_length": 1280,
+      "background_color": "#000000"
+    },
+    "class_type": "LayerUtility: ImageScaleByAspectRatio V2",
+    "_meta": {
+      "title": "LayerUtility: ImageScaleByAspectRatio V2"
+    }
+  },
+  "457": {
+    "inputs": {
+      "values.a": [
+        "529",
+        0
+      ],
+      "expression": "max(5, round(a * 24)) + (5 - (max(5, round(a * 24)) % 17)) % 17"
+    },
+    "class_type": "ComfyMathExpression",
+    "_meta": {
+      "title": "ComfyMathExpression"
+    }
+  },
+  "528": {
+    "inputs": {
+      "prompt": "<Subject1>是<Picture 1>中的女一。\n严格保持Picture 1中的人物身份、面部特征、浅金色头发、浅金色低发髻、象牙白宽檐草帽、白色半透明面纱、象牙白19世纪法式长裙、身体比例和整体气质。\n不得改变人物身份、年龄、脸型、发色、帽子、面纱、服装和身体比例。\n\n<Subject2>是<Picture 2>中的女二。\n严格保持Picture 2中的人物身份、面部特征、深栗棕色头发、复古草帽、浅色19世纪法式长裙、身体比例和整体气质。\n不得改变人物身份、年龄、脸型、发色、帽子、服装和身体比例。\n\n<Picture 3>是本段唯一首帧。\n视频第0秒必须严格从Picture 3开始。\n第一帧的人物位置、人物朝向、两人间距、身体姿态、红伞位置、镜头高度、镜头角度、景别、花海、悬崖、海岸线、天空、海洋、光照、色彩和空间关系全部严格继承Picture 3。\n不得重新建立构图，不得重新摆放人物，不得突然改变景别。\n\n<Picture 4>是本段唯一最终尾帧。\n从第0秒开始，整个画面就持续、缓慢、连续地向Picture 4的构图和油画质感靠近。\n必须在第3秒准确完成与Picture 4的视觉匹配。\n第3秒以后直到第5秒，整个画面完全保持静止。\n\n<Picture 6>是女二手中朱红色复古阳伞的固定参考。\n红伞始终保持Picture 6中的朱红色、整体形状、比例、伞面结构、伞骨结构、中央伞杆和握柄关系。\n不得消失、变形、变色或改变结构。\n\n\n[Final Shot | 5 seconds]\n\n\n【整个镜头只有两个阶段】\n\n0.00–3.00秒：\n极其缓慢的人物动作 + 极其缓慢的摄影机运动 + 从第一帧就开始的一笔一笔油画化。\n\n3.00–5.00秒：\n已经完全成为Picture 4的油画。\n绝对静止。\n没有任何人物动作。\n没有任何摄影机运动。\n没有任何继续变化的笔触。\n\n\n━━━━━━━━━━━━━━━━━━\n【0.00秒：严格继承首帧】\n━━━━━━━━━━━━━━━━━━\n\n视频从Picture 3完全无缝开始。\n\n第0秒第一帧必须与Picture 3一致。\n\n两位女性继续面向海洋和悬崖方向。\n\n她们只进行非常缓慢、非常轻柔的向前移动。\n\n她们的移动速度必须明显慢于普通步行。\n\n整个0–3秒内只向前移动非常短的距离。\n\n每个人最多只完成极少量、非常缓慢的步伐。\n\n不要让人物明显快速远离摄影机。\n\n不要让人物在3秒内走出很远。\n\n\n女一左手继续轻轻提住少量裙摆。\n\n女二继续自然稳定地持有朱红色阳伞。\n\n海风轻柔地作用于：\n\n女一的白色面纱，\n两人的裙摆，\n少量发丝，\n女二的红伞。\n\n所有布料运动都必须具有真实重量。\n\n裙摆只产生缓慢、柔和、小幅度的摆动。\n\n面纱只产生缓慢、轻盈的飘动。\n\n\n━━━━━━━━━━━━━━━━━━\n【女一右手：0秒立即开始，持续接近3秒】\n━━━━━━━━━━━━━━━━━━\n\n从视频开始的第0秒，女一右手就开始动作。\n\n这个动作必须极慢。\n\n动作持续接近完整的3秒。\n\n\n女一保持非常缓慢向前移动的同时：\n\n右肩首先产生极其轻微的抬升。\n\n右上臂随后非常缓慢地离开身体。\n\n肘部自然弯曲。\n\n前臂缓慢向身体右前上方移动。\n\n右手沿着一条自然、柔和、连续的弧线逐渐升高。\n\n\n0.00秒：\n\n右手刚刚开始离开原来的位置。\n\n\n0.00–1.00秒：\n\n右手只移动很小的距离。\n\n上臂缓慢抬起。\n\n肘部开始自然弯曲。\n\n整个动作非常克制。\n\n\n1.00–2.00秒：\n\n右前臂继续非常缓慢地升高。\n\n手掌逐渐接近肩部以上的位置。\n\n动作速度依然非常慢。\n\n人物身体保持自然。\n\n肩膀不能僵硬。\n\n\n2.00–2.80秒：\n\n右手才逐渐接近额头和帽檐附近。\n\n手掌自然朝向阳光方向。\n\n手腕保持柔和。\n\n五根手指自然放松、略微分开。\n\n手指保持正常人体结构。\n\n\n2.80–3.00秒：\n\n右手最后只移动极小距离。\n\n动作速度逐渐趋近于零。\n\n最终停留在额头与帽檐附近的自然遮阳位置。\n\n手掌与帽檐之间保留自然空间。\n\n这是一个女性在阳光下非常自然地缓慢抬手遮挡阳光的姿态。\n\n动作优雅、克制、安静。\n\n整个右手动作从第0秒开始，到接近第3秒才完全结束。\n\n\n━━━━━━━━━━━━━━━━━━\n【两位人物0–3秒的移动】\n━━━━━━━━━━━━━━━━━━\n\n两位女性同时保持极其缓慢的向前移动。\n\n动作必须比之前更慢。\n\n不要使用正常步行节奏。\n\n\n脚掌缓慢离开草地。\n\n腿部缓慢向前移动。\n\n裙摆因为腿部移动产生轻微形变。\n\n脚尖缓慢落地。\n\n身体重心再缓慢转移。\n\n\n不要连续快速迈步。\n\n不要出现明显快速的手臂摆动。\n\n两位女性整个3秒内只向前移动非常短的距离。\n\n\n越接近第3秒：\n\n人物移动越慢。\n\n腿部动作越慢。\n\n裙摆运动越慢。\n\n面纱运动越慢。\n\n红伞运动越慢。\n\n最后全部逐渐停止。\n\n\n━━━━━━━━━━━━━━━━━━\n【摄影机运动：0–3秒】\n━━━━━━━━━━━━━━━━━━\n\n摄影机严格继承Picture 3的运动状态。\n\n摄影机继续进行极其缓慢、丝滑、稳定的后退和轻微升高。\n\n运动幅度必须非常小。\n\n\n不要快速拉远。\n\n不要快速升空。\n\n不要突然改变镜头高度。\n\n不要突然变成极远景。\n\n\n摄影机的任务只是：\n\n从Picture 3当前构图出发，\n\n在完整3秒时间里，\n\n非常缓慢地向Picture 4的最终构图靠近。\n\n\n0–1秒：\n\n仍然能够感觉到轻微的摄影机运动。\n\n\n1–2秒：\n\n摄影机速度继续下降。\n\n\n2–3秒：\n\n摄影机只进行非常微小的最终构图调整。\n\n运动速度越来越接近零。\n\n\n到第3秒：\n\n摄影机的位置、距离、高度、视角和构图完全稳定下来。\n\n与Picture 4最终构图匹配。\n\n摄影机彻底停止。\n\n\n━━━━━━━━━━━━━━━━━━\n【油画变化：第0秒立即开始】\n━━━━━━━━━━━━━━━━━━\n\n油画变化必须从视频开始的第0秒立即发生。\n\n不要等待。\n\n不要先保持真人摄影两秒以后再变化。\n\n从第0秒开始，第一批油画颜料笔触就已经出现在真实画面中。\n\n\n但是变化必须极其缓慢。\n\n整个油画化过程占满0.00–3.00秒。\n\n不能提前完成。\n\n不能在某一个瞬间突然完成。\n\n\n最重要：\n\n这不是风格滤镜。\n\n不是整张图片透明度渐变。\n\n不是画面溶解。\n\n不是从真人图片直接切换成油画图片。\n\n\n必须表现为：\n\n一笔颜料出现，\n\n然后另一笔颜料出现，\n\n然后旁边再出现一笔，\n\n随后越来越多独立笔触出现，\n\n真实摄影区域被这些不断增加的实体油画笔触逐步重新描绘。\n\n\n观众必须能够明确看见：\n\n真实世界正在被一笔一笔画成油画。\n\n\n━━━━━━━━━━━━━━━━━━\n【0.00–1.00秒：第一批笔触】\n━━━━━━━━━━━━━━━━━━\n\n第0秒开始：\n\n真实电影画面仍然占据绝大部分画面。\n\n但天空、远处海洋和最远处悬崖立即开始出现少量独立油画笔触。\n\n\n天空出现第一笔浅蓝色颜料。\n\n旁边出现一笔乳白色颜料。\n\n云层边缘出现一笔淡黄色颜料。\n\n随后出现浅紫灰色短笔触。\n\n\n这些笔触必须能够单独辨认。\n\n它们具有真实颜料厚度、方向和边缘。\n\n\n海洋也开始出现第一批笔触：\n\n蓝色，\n青绿色，\n浅紫色，\n乳白色，\n少量暖黄色反光。\n\n\n一笔。\n\n再一笔。\n\n再一笔。\n\n\n真实海水仍然能够从笔触之间看到。\n\n不要整片海洋一起变化。\n\n\n悬崖开始出现少量：\n\n灰白色，\n蓝灰色，\n棕绿色，\n暖黄色\n\n的短笔触。\n\n\n第1秒结束时：\n\n画面仍然可以明显看出是真实电影摄影，\n\n但远景已经出现大量零散、真实、可见的油画笔触。\n\n\n━━━━━━━━━━━━━━━━━━\n【1.00–2.00秒：笔触不断增加】\n━━━━━━━━━━━━━━━━━━\n\n从第1秒开始：\n\n新的油画笔触持续不断出现。\n\n不能突然增加一大片。\n\n必须保持逐笔累积。\n\n\n天空上的笔触数量增加。\n\n原本真实的云逐渐由许多独立的乳白色、淡黄色、浅蓝色和浅紫色笔触重新组成。\n\n\n海洋中的真实波纹逐渐被越来越多蓝色、青绿色、白色、浅紫色颜料笔触覆盖。\n\n\n每一小块海水都是由许多独立笔触逐渐构成。\n\n\n悬崖继续被一笔一笔重新描绘。\n\n\n随后笔触进入近处花海。\n\n\n绿色短笔触逐渐覆盖真实草叶。\n\n黄色短笔触形成阳光和黄色小花。\n\n白色短笔触形成白色花朵。\n\n粉红色短笔触形成粉色野花。\n\n蓝紫色短笔触散布在花海之间。\n\n\n不是整个草地突然油画化。\n\n必须看到：\n\n真实草地之间首先出现一些颜料；\n\n颜料数量越来越多；\n\n真实草叶越来越少；\n\n最后逐渐形成Picture 4中的印象派花海。\n\n\n在这一阶段：\n\n两位人物仍然保留较多真实摄影质感。\n\n人物不要提前完全变成油画。\n\n\n━━━━━━━━━━━━━━━━━━\n【2.00–3.00秒：人物被逐笔画入油画】\n━━━━━━━━━━━━━━━━━━\n\n从第2秒开始：\n\n环境已经明显接近Picture 4的油画语言。\n\n此时油画笔触才更加明显地进入两位人物。\n\n\n首先从裙摆开始。\n\n\n女一象牙白裙摆上出现：\n\n奶油白，\n象牙白，\n浅黄色，\n浅蓝灰色\n\n的独立短笔触。\n\n\n女二裙摆出现：\n\n奶油白，\n暖灰色，\n浅粉色，\n淡黄色\n\n的独立颜料笔触。\n\n\n真实布料和油画颜料短暂共存。\n\n然后一笔一笔增加。\n\n真实布料纹理逐渐减少。\n\n\n笔触缓慢向上覆盖：\n\n裙摆，\n\n腰部，\n\n身体，\n\n肩膀，\n\n手臂，\n\n帽子，\n\n头发，\n\n面纱。\n\n\n女一正在缓慢抬起的右手也逐渐被油画笔触重新描绘。\n\n\n手部不要继续保持摄影级皮肤细节。\n\n随着油画化增加：\n\n手指的精细皮肤纹理逐渐消失。\n\n手部由少量暖肤色、浅粉色、米黄色和柔和阴影笔触概括。\n\n\n但是手部轮廓和动作必须保持正确。\n\n\n女一的右手仍然能够明确看出正在缓慢抬向额头和帽檐附近。\n\n\n人物脸部同样逐渐减少摄影级细节。\n\n不要让油画中的远景人物仍然拥有超高清眼睛、睫毛和皮肤毛孔。\n\n人物最终应该成为Picture 4中那种自然、概括、由可见笔触组成的远景人物。\n\n\n━━━━━━━━━━━━━━━━━━\n【红伞：0–3秒持续油画化】\n━━━━━━━━━━━━━━━━━━\n\n女二的朱红色阳伞始终是整个画面的颜色锚点。\n\n它不能消失。\n\n\n第0秒开始，真实红伞表面也逐渐出现极少量油画笔触。\n\n首先是一笔深红。\n\n随后是一笔朱红。\n\n再出现一笔珊瑚红。\n\n随后出现暖橙红高光。\n\n\n随着时间推进：\n\n红伞表面的真实材质逐渐被越来越多红色系油画笔触覆盖。\n\n\n但是红伞的：\n\n完整轮廓，\n\n伞面方向，\n\n伞顶位置，\n\n伞杆，\n\n人物持伞关系\n\n始终保持稳定。\n\n\n到第3秒：\n\n红伞完整成为Picture 4中的油画红伞。\n\n\n━━━━━━━━━━━━━━━━━━\n【运动和油画必须同步减速】\n━━━━━━━━━━━━━━━━━━\n\n从第0秒到第3秒：\n\n油画笔触越来越多，\n\n但人物运动越来越慢。\n\n\n0–1秒：\n\n人物仍然具有非常缓慢的运动。\n\n摄影机仍然具有非常缓慢的运动。\n\n油画笔触开始出现。\n\n\n1–2秒：\n\n人物运动进一步减慢。\n\n摄影机运动进一步减慢。\n\n油画笔触明显增加。\n\n\n2–2.5秒：\n\n人物动作已经非常慢。\n\n摄影机运动已经非常微弱。\n\n大量真实区域已经变成油画。\n\n\n2.5–3秒：\n\n所有运动逐渐趋近于零。\n\n女一右手最后缓慢到达遮阳位置。\n\n两位女性最后的脚步逐渐停止。\n\n裙摆最后一点摆动逐渐停止。\n\n面纱最后一点飘动逐渐停止。\n\n红伞最后一点运动逐渐停止。\n\n摄影机最后一点运动逐渐停止。\n\n\n与此同时：\n\n最后剩余的真实摄影区域被最后一批独立油画笔触一笔一笔覆盖。\n\n\n第2.9秒附近：\n\n只剩极少量真实摄影质感。\n\n\n最后几笔颜料逐渐落下。\n\n\n第3.00秒：\n\n最后一笔完成。\n\n真实摄影质感完全消失。\n\n整个画面完整成为Picture 4的传统19世纪法国印象派油画。\n\n\n不是突然变化。\n\n而是经过完整3秒连续不断的逐笔绘制以后自然完成。\n\n\n━━━━━━━━━━━━━━━━━━\n【3.00–5.00秒：绝对定格】\n━━━━━━━━━━━━━━━━━━\n\n从第3.00秒开始：\n\n一切结束。\n\n整个画面已经与Picture 4匹配。\n\n之后整整2秒保持完全静止。\n\n\n摄影机完全静止。\n\n不再后退。\n\n不再升高。\n\n不再调整构图。\n\n不再缩放。\n\n\n女一完全静止。\n\n女一右手停留在额头和帽檐附近的自然遮阳位置。\n\n女一左手保持最终姿态。\n\n\n女二完全静止。\n\n红伞完全静止。\n\n\n两人的腿完全静止。\n\n裙摆完全静止。\n\n面纱完全静止。\n\n头发完全静止。\n\n花草完全静止。\n\n海洋完全静止。\n\n天空完全静止。\n\n云层完全静止。\n\n\n油画笔触也完全静止。\n\n不再增加新的笔触。\n\n不再改变颜色。\n\n不再改变纹理。\n\n不再产生任何绘画动画。\n\n\n从第3秒到第5秒：\n\n就是一幅已经完成的静态油画。\n\n像摄影机最后停留在一张真正的实体油画作品上一样。\n\n最后2秒不得发生任何视觉变化。\n\n\n━━━━━━━━━━━━━━━━━━\n【速度强制约束】\n━━━━━━━━━━━━━━━━━━\n\n0–3秒所有人物动作必须极慢。\n\n女一右手从第0秒开始抬起。\n\n整个抬手过程持续接近3秒。\n\n不能在第1秒完成。\n\n不能在第2秒完成。\n\n必须接近第3秒才到达最终位置。\n\n\n两位女性向前移动速度极慢。\n\n3秒内只移动非常短的距离。\n\n人物动作随着时间持续减速。\n\n摄影机运动随着时间持续减速。\n\n海风造成的布料运动随着时间持续减速。\n\n到第3秒所有运动同时归零。\n\n\n━━━━━━━━━━━━━━━━━━\n【油画强制约束】\n━━━━━━━━━━━━━━━━━━\n\n第0秒立即开始出现油画笔触。\n\n0–3秒持续油画化。\n\n整个3秒都必须处于连续变化过程中。\n\n不能前两秒没有变化。\n\n不能最后一秒突然完成。\n\n不能在某一帧整体改变风格。\n\n\n必须：\n\n第一笔出现，\n\n第二笔出现，\n\n第三笔出现，\n\n更多独立笔触出现，\n\n不同区域逐渐被笔触覆盖，\n\n笔触密度持续增加，\n\n真实摄影细节持续减少，\n\n直到第3秒最后一笔完成。\n\n\n禁止简单油画滤镜。\n\n禁止整体风格瞬间切换。\n\n禁止突然改变纹理。\n\n禁止溶解转场。\n\n禁止淡入另一张图片。\n\n禁止突然匹配Picture 4。\n\n必须表现真实可见的逐笔绘制过程。\n\n\n━━━━━━━━━━━━━━━━━━\n【禁止项】\n━━━━━━━━━━━━━━━━━━\n\n快速抬手\n手掌左右摆动\n手腕反复摆动\n快速走路\n正常速度走路\n大步行走\n奔跑\n人物滑行\n快速拉远\n快速升空\n突然改变景别\n突然停止人物动作\n突然停止摄影机\n突然油画化\n整屏同时油画化\n油画滤镜\n溶解转场\n人物提前完全油画化\n真人贴在油画背景上\n异常手指\n多余手指\n手掌畸形\n红伞变形\n红伞消失\n红伞变色\n人物身份变化\n服装变化\n帽子变化\nPicture 3首帧被重新构图\n第3秒以后继续运镜\n第3秒以后人物继续移动\n第3秒以后裙摆继续飘动\n第3秒以后继续增加笔触\n第3秒以后任何画面变化\n\n\n【声音】\n\n无背景音乐。\n\n0–3秒只保留非常柔和的海风、远处海浪、极轻微的裙摆摩擦和草地脚步声。\n\n随着0–3秒人物动作逐渐减速，脚步声和衣料摩擦声也逐渐减弱。\n\n3秒以后画面完全定格，只保留极其轻微、遥远的海浪环境声。\n\n\n【最终目标】\n\n0秒：\nPicture 3真实电影画面无缝开始，\n女一右手立即以极慢速度开始向额头和帽檐附近抬起，\n两位女性极慢向前移动，\n摄影机极慢运动，\n第一批油画笔触同时开始出现。\n\n1秒：\n人物只完成很少的动作，\n摄影机只移动很少的距离，\n天空、海洋、悬崖和花海已经出现越来越多独立油画笔触。\n\n2秒：\n女一右手仍然没有完成动作，\n两位女性仍然极慢移动，\n摄影机已经明显减速，\n环境已经大量油画化，\n人物开始被一笔一笔重新描绘。\n\n2–3秒：\n所有动作越来越慢，\n女一右手缓慢到达额头与帽檐附近的遮阳位置，\n两位女性逐渐停止，\n摄影机逐渐停止，\n人物逐渐被最后的油画笔触覆盖，\n最后残留的真实摄影区域一笔一笔消失。\n\n3秒：\n最后一笔油画颜料完成。\n整个画面与Picture 4匹配。\n所有运动同时归零。\n\n3–5秒：\n保持Picture 4。\n完全静止。\n完全定格。\n不再发生任何变化。"
+    },
+    "class_type": "CR Prompt Text",
+    "_meta": {
+      "title": "CR Prompt Text"
+    }
+  },
+  "338": {
+    "inputs": {
+      "clip": [
+        "450",
+        0
+      ],
+      "vae": [
+        "446",
+        0
+      ],
+      "audio_vae": [
+        "448",
+        0
+      ],
+      "ref_images.ref_image_0": [
+        "482",
+        0
+      ],
+      "ref_images.ref_image_1": [
+        "478",
+        0
+      ],
+      "ref_images.ref_image_2": [
+        "479",
+        0
+      ],
+      "ref_images.ref_image_3": [
+        "516",
+        0
+      ],
+      "ref_images.ref_image_4": [
+        "481",
+        0
+      ],
+      "ref_images.ref_image_5": [
+        "480",
+        0
+      ],
+      "ref_audios.ref_audio_0": [
+        "522",
+        0
+      ],
+      "ref_audios.ref_audio_1": [
+        "523",
+        0
+      ],
+      "ref_audios.ref_audio_2": [
+        "473",
+        0
+      ],
+      "prompt": [
+        "528",
+        0
+      ],
+      "width": [
+        "456",
+        0
+      ],
+      "height": [
+        "456",
+        1
+      ],
+      "length": [
+        "457",
+        1
+      ],
+      "ref_image_size": "match"
+    },
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "_meta": {
+      "title": "MiniMaxH3ReferenceToVideo"
+    }
+  },
+  "515": {
+    "inputs": {
+      "image": "ChatGPT Image 2026年9月22日 18_11_22.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "LoadImage"
+    }
+  },
+  "475": {
+    "inputs": {
+      "image": "ChatGPT Image 2026年9月21日 21_13_46.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "LoadImage"
+    }
+  },
+  "469": {
+    "inputs": {
+      "image": "ChatGPT Image 2026年9月22日 11_11_15.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "LoadImage"
+    }
+  },
+  "473": {
+    "inputs": {
+      "audio": "None"
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "LoadAudio"
+    }
+  },
+  "317": {
+    "inputs": {
+      "noise": [
+        "322",
+        0
+      ],
+      "guider": [
+        "316",
+        0
+      ],
+      "sampler": [
+        "313",
+        0
+      ],
+      "sigmas": [
+        "568",
+        0
+      ],
+      "latent_image": [
+        "338",
+        1
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "SamplerCustomAdvanced"
+    }
+  },
+  "316": {
+    "inputs": {
+      "model": [
+        "576",
+        0
+      ],
+      "conditioning": [
+        "338",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "BasicGuider"
+    }
+  },
+  "556": {
+    "inputs": {
+      "video_latent": [
+        "555",
+        0
+      ],
+      "audio_latent": [
+        "557",
+        1
+      ]
+    },
+    "class_type": "LTXVConcatAVLatent",
+    "_meta": {
+      "title": "LTXVConcatAVLatent"
+    }
+  },
+  "557": {
+    "inputs": {
+      "av_latent": [
+        "317",
+        1
+      ]
+    },
+    "class_type": "LTXVSeparateAVLatent",
+    "_meta": {
+      "title": "LTXVSeparateAVLatent"
+    }
+  },
+  "551": {
+    "inputs": {
+      "samples": [
+        "553",
+        1
+      ],
+      "vae": [
+        "446",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAEDecode"
+    }
+  },
+  "552": {
+    "inputs": {
+      "samples": [
+        "553",
+        1
+      ],
+      "vae": [
+        "448",
+        0
+      ]
+    },
+    "class_type": "VAEDecodeAudio",
+    "_meta": {
+      "title": "VAEDecodeAudio"
+    }
+  },
+  "563": {
+    "inputs": {
+      "frame_rate": 24,
+      "loop_count": 0,
+      "filename_prefix": "MiniMaxH3/learned_latent_twopass_i2va_upstream_parity_v2_exp",
+      "format": "video/h265-mp4",
+      "pix_fmt": "yuv420p10le",
+      "crf": 22,
+      "save_metadata": true,
+      "pingpong": false,
+      "save_output": true,
+      "images": [
+        "551",
+        0
+      ],
+      "audio": [
+        "552",
+        0
+      ]
+    },
+    "class_type": "VHS_VideoCombine",
+    "_meta": {
+      "title": "VHS_VideoCombine"
+    }
+  },
+  "324": {
+    "inputs": {
+      "value": 10
+    },
+    "class_type": "INTConstant",
+    "_meta": {
+      "title": "INTConstant"
+    }
+  },
+  "456": {
+    "inputs": {
+      "aspect_ratio": "16:9 (Widescreen)",
+      "megapixels": 2,
+      "multiple": 32
+    },
+    "class_type": "ResolutionSelector",
+    "_meta": {
+      "title": "ResolutionSelector"
+    }
+  },
+  "313": {
+    "inputs": {
+      "sampler_name": "euler"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "KSamplerSelect"
+    }
+  },
+  "553": {
+    "inputs": {
+      "noise": [
+        "322",
+        0
+      ],
+      "guider": [
+        "316",
+        0
+      ],
+      "sampler": [
+        "313",
+        0
+      ],
+      "sigmas": [
+        "569",
+        0
+      ],
+      "latent_image": [
+        "556",
+        0
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "SamplerCustomAdvanced"
+    }
+  },
+  "322": {
+    "inputs": {
+      "noise_seed": 947533259814098
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "RandomNoise"
+    }
+  },
+  "568": {
+    "inputs": {
+      "sigmas": [
+        "567",
+        0
+      ],
+      "extra_steps": 1,
+      "start_at_sigma": 0.7,
+      "end_at_sigma": 0,
+      "spacing": "cosine"
+    },
+    "class_type": "H3SigmaRefiner",
+    "_meta": {
+      "title": "H3SigmaRefiner"
+    }
+  },
+  "314": {
+    "inputs": {
+      "model": [
+        "576",
+        0
+      ],
+      "scheduler": "beta",
+      "steps": [
+        "324",
+        0
+      ],
+      "denoise": 1
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "BasicScheduler"
+    }
+  },
+  "567": {
+    "inputs": {
+      "sigmas": [
+        "314",
+        0
+      ],
+      "steps": 1,
+      "start_at_sigma": 0.7500000000000001,
+      "end_at_sigma": 0.7000000000000002,
+      "spacing": "cosine"
+    },
+    "class_type": "ExtendIntermediateSigmas",
+    "_meta": {
+      "title": "ExtendIntermediateSigmas"
+    }
+  },
+  "548": {
+    "inputs": {
+      "model": [
+        "578",
+        0
+      ],
+      "lora_name": "MysticXXX_MMH3-V1.safetensors",
+      "strength_model": 0.5000000000000001
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "LoraLoaderModelOnly"
+    }
+  },
+  "547": {
+    "inputs": {
+      "unet_name": "minimax_h3_hybrid_fl2va_ref2va_b25-49-int8.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "UNETLoader"
+    }
+  },
+  "443": {
+    "inputs": {
+      "model": [
+        "547",
+        0
+      ]
+    },
+    "class_type": "MiniMaxH3MemoryEfficientSageAttentionPatch",
+    "_meta": {
+      "title": "MiniMaxH3MemoryEfficientSageAttentionPatch"
+    }
+  },
+  "442": {
+    "inputs": {
+      "model": [
+        "443",
+        0
+      ],
+      "attention": "pytorch attention"
+    },
+    "class_type": "ModelAttentionBackend",
+    "_meta": {
+      "title": "ModelAttentionBackend"
+    }
+  },
+  "569": {
+    "inputs": {
+      "model": [
+        "578",
+        0
+      ],
+      "scheduler": "beta",
+      "steps": 2,
+      "denoise": 0.20000000000000004
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "BasicScheduler"
+    }
+  },
+  "450": {
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "type": "minimax",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "CLIPLoader"
+    }
+  },
+  "526": {
+    "inputs": {
+      "image": "z-image_2026_09_20_2210_原始_0003.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "LoadImage"
+    }
+  },
+  "527": {
+    "inputs": {
+      "image": "ChatGPT Image 2026年9月22日 11_11_07.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "LoadImage"
+    }
+  },
+  "525": {
+    "inputs": {
+      "image": "Snipaste_2026-09-22_17-47-36.png"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "LoadImage"
+    }
+  },
+  "523": {
+    "inputs": {
+      "audio": "86f6f80b94a0676c9220e8c0cbdce4122da11207bb0ccffb96ca3b6bf05e2362.mp3"
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "LoadAudio"
+    }
+  },
+  "522": {
+    "inputs": {
+      "audio": "be899d8b0cb61ff11856cec9a5027ffba75fedc6332e5cc636d4fe730898378b.mp3"
+    },
+    "class_type": "LoadAudio",
+    "_meta": {
+      "title": "LoadAudio"
+    }
+  },
+  "549": {
+    "inputs": {
+      "model": [
+        "548",
+        0
+      ],
+      "lora_name": "minimax_h3_turbo_v4_step600_ema_pruned_comfyui.safetensors",
+      "strength_model": 1.0000000000000002
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "LoraLoaderModelOnly"
+    }
+  },
+  "320": {
+    "inputs": {
+      "samples": [
+        "317",
+        0
+      ],
+      "vae": [
+        "446",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAEDecode"
+    }
+  },
+  "321": {
+    "inputs": {
+      "samples": [
+        "317",
+        0
+      ],
+      "vae": [
+        "448",
+        0
+      ]
+    },
+    "class_type": "VAEDecodeAudio",
+    "_meta": {
+      "title": "VAEDecodeAudio"
+    }
+  },
+  "555": {
+    "inputs": {
+      "latent": [
+        "557",
+        0
+      ],
+      "model_name": "minimax_h3_latent_upscaler_3d_fp16.safetensors",
+      "mode": "scale by multiplier",
+      "mode.scale": 1.5000000000000002,
+      "align": 32,
+      "enable_temporal_chunking": true,
+      "force_unload": true,
+      "device": "cuda",
+      "precision": "fp16"
+    },
+    "class_type": "MinimaxH3LatentUpscaler3D",
+    "_meta": {
+      "title": "MinimaxH3LatentUpscaler3D"
+    }
+  },
+  "529": {
+    "inputs": {
+      "value": 5
+    },
+    "class_type": "PrimitiveFloat",
+    "_meta": {
+      "title": "Float (duration)"
+    }
+  },
+  "521": {
+    "inputs": {
+      "frame_rate": 24,
+      "loop_count": 0,
+      "filename_prefix": "MiniMaxH3/learned_latent_twopass_i2va_upstream_parity_v2_exp",
+      "format": "video/h265-mp4",
+      "pix_fmt": "yuv420p",
+      "crf": 22,
+      "save_metadata": true,
+      "pingpong": false,
+      "save_output": true,
+      "images": [
+        "320",
+        0
+      ],
+      "audio": [
+        "321",
+        0
+      ]
+    },
+    "class_type": "VHS_VideoCombine",
+    "_meta": {
+      "title": "VHS_VideoCombine"
+    }
+  },
+  "576": {
+    "inputs": {
+      "model": [
+        "577",
+        0
+      ],
+      "chunks": 2,
+      "seq_threshold": 4096
+    },
+    "class_type": "MiniMaxChunkFeedForward",
+    "_meta": {
+      "title": "MiniMaxChunkFeedForward"
+    }
+  },
+  "577": {
+    "inputs": {
+      "model": [
+        "549",
+        0
+      ],
+      "head_chunks": 2
+    },
+    "class_type": "MiniMaxLowVRAMAttention",
+    "_meta": {
+      "title": "MiniMaxLowVRAMAttention"
+    }
+  },
+  "578": {
+    "inputs": {
+      "model": [
+        "442",
+        0
+      ],
+      "sage_attention": "sageattn3",
+      "allow_compile": false
+    },
+    "class_type": "PathchSageAttentionKJ",
+    "_meta": {
+      "title": "PathchSageAttentionKJ"
+    }
+  }
+}

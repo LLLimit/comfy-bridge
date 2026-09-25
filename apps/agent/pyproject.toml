@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=78"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "comfy-bridge-agent"
+version = "0.2.0"
+description = "Local Windows bridge between the Comfy Bridge mobile app and ComfyUI"
+requires-python = ">=3.12"
+dependencies = [
+  "aiohttp>=3.12,<4",
+  "fastapi>=0.116,<1",
+  "pyside6>=6.10,<7",
+  "pydantic>=2.11,<3",
+  "python-multipart>=0.0.20,<1",
+  "uvicorn>=0.35,<1",
+  "websockets>=17.1,<18"
+]
+
+[project.optional-dependencies]
+dev = [
+  "httpx>=0.28,<1",
+  "mypy>=1.17,<2",
+  "pytest>=8.4,<9",
+  "pytest-asyncio>=1.1,<2",
+  "ruff>=0.12,<1"
+]
+
+[project.scripts]
+comfy-bridge = "comfy_bridge.__main__:main"
+comfy-bridge-gui = "comfy_bridge.gui:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+comfy_bridge = ["desktop/qml/*.qml", "desktop/assets/*"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "ASYNC"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+packages = ["comfy_bridge"]
+

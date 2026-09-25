@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "id": "z_image_20260605",
+  "revision": 1,
+  "name": "Z-image生图",
+  "description": "使用现有 Z-Image Turbo 工作流，根据提示词生成并放大图片。",
+  "category": "image",
+  "provider": "comfyui",
+  "workflow": {
+    "file": "workflow.json"
+  },
+  "presentation": {
+    "submitLabel": "开始生成图片",
+    "icon": "image"
+  },
+  "inputs": [
+    {
+      "key": "prompt",
+      "label": "提示词",
+      "description": "描述人物、场景、构图、光线和画面风格。",
+      "valueType": "string",
+      "widget": "textarea",
+      "required": true,
+      "advanced": false,
+      "default": "",
+      "constraints": {
+        "maxLength": 12000
+      },
+      "mapping": {
+        "strategy": "direct",
+        "targets": [
+          {
+            "nodeId": "22",
+            "inputName": "text",
+            "expectedClassType": "CLIPTextEncode"
+          }
+        ]
+      }
+    },
+    {
+      "key": "width",
+      "label": "图片宽度",
+      "description": "建议为 32 的倍数。",
+      "valueType": "integer",
+      "widget": "number",
+      "required": true,
+      "advanced": false,
+      "default": 1080,
+      "constraints": {
+        "min": 256,
+        "max": 2048,
+        "step": 32
+      },
+      "mapping": {
+        "strategy": "direct",
+        "targets": [
+          {
+            "nodeId": "7",
+            "inputName": "width",
+            "expectedClassType": "EmptyLatentImage"
+          }
+        ]
+      }
+    },
+    {
+      "key": "height",
+      "label": "图片高度",
+      "description": "建议为 32 的倍数。",
+      "valueType": "integer",
+      "widget": "number",
+      "required": true,
+      "advanced": false,
+      "default": 1920,
+      "constraints": {
+        "min": 256,
+        "max": 2048,
+        "step": 32
+      },
+      "mapping": {
+        "strategy": "direct",
+        "targets": [
+          {
+            "nodeId": "7",
+            "inputName": "height",
+            "expectedClassType": "EmptyLatentImage"
+          }
+        ]
+      }
+    },
+    {
+      "key": "seed",
+      "label": "随机种子",
+      "description": "留空时每次自动随机。",
+      "valueType": "integer",
+      "widget": "seed",
+      "required": false,
+      "advanced": true,
+      "default": null,
+      "constraints": {
+        "min": 0,
+        "max": 9223372036854775807
+      },
+      "mapping": {
+        "strategy": "direct",
+        "targets": [
+          {
+            "nodeId": "18",
+            "inputName": "seed",
+            "expectedClassType": "KSampler"
+          }
+        ]
+      }
+    }
+  ],
+  "outputs": [
+    {
+      "key": "image",
+      "label": "生成图片",
+      "mediaType": "image",
+      "nodeId": "429",
+      "historyField": "images"
+    }
+  ],
+  "stages": [
+    {
+      "nodeId": "20",
+      "label": "正在加载 Z-Image 模型"
+    },
+    {
+      "nodeId": "18",
+      "label": "正在生成图片"
+    },
+    {
+      "nodeId": "21",
+      "label": "正在放大图片"
+    }
+  ]
+}
